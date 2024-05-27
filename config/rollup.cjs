@@ -32,7 +32,7 @@ const compilePaths = {
   core: {
     packageName: pkg.name,
     input: 'src/index.ts',
-    output: (suffix, ext = 'js') => `dist/${pkg.name}.${suffix}.${ext}`
+    output: (suffix, ext = 'js') => `dist/index.${suffix}.${ext}`
   },
   vue: {
     packageName: 'VueHook',
@@ -42,7 +42,7 @@ const compilePaths = {
     externalMap: {
       vue: 'Vue'
     },
-    output: (suffix, ext = 'js') => `dist/hooks/vuehook.${suffix}.${ext}`
+    output: (suffix, ext = 'js') => `dist/vuehook.${suffix}.${ext}`
   },
   react: {
     packageName: 'ReactHook',
@@ -50,7 +50,7 @@ const compilePaths = {
     externalMap: {
       react: 'React'
     },
-    output: (suffix, ext = 'js') => `dist/hooks/reacthook.${suffix}.${ext}`
+    output: (suffix, ext = 'js') => `dist/reacthook.${suffix}.${ext}`
   },
   svelte: {
     externalMap: {
@@ -60,12 +60,12 @@ const compilePaths = {
     },
     packageName: 'SvelteHook',
     input: 'src/predefine/SvelteHook.ts',
-    output: (suffix, ext = 'js') => `dist/hooks/sveltehook.${suffix}.${ext}`
+    output: (suffix, ext = 'js') => `dist/sveltehook.${suffix}.${ext}`
   },
   globalFetch: {
     packageName: 'GlobalFetch',
     input: 'src/predefine/GlobalFetch.ts',
-    output: (suffix, ext = 'js') => `dist/adapter/globalfetch.${suffix}.${ext}`
+    output: (suffix, ext = 'js') => `dist/globalfetch.${suffix}.${ext}`
   }
 };
 
