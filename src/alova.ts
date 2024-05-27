@@ -2,6 +2,7 @@ import {
   AlovaGlobalStorage,
   AlovaMethodConfig,
   AlovaOptions,
+  MethodOptions,
   MethodRequestConfig,
   RequestBody,
   StatesHook
@@ -35,12 +36,14 @@ export class Alova<S, E, RC, RE, RH> {
   constructor(options: AlovaOptions<S, E, RC, RE, RH>) {
     // 如果storage未指定，则默认使用localStorage
     this.storage = options.storageAdapter || globalLocalStorage;
-
     // 合并默认options
     this.options = {
       ...defaultAlovaOptions,
       ...options
     };
+  }
+  instance<R, T = unknown>(options: MethodOptions<R, T, RC, RH>) {
+    return newInstance(Method<S, E, R, T, RC, RE, RH>, options.type, this, options.url, options.config, options.data);
   }
   Get<R, T = unknown>(url: string, config?: AlovaMethodCreateConfig<R, T, RC, RH>) {
     return newInstance(Method<S, E, R, T, RC, RE, RH>, typeGet, this, url, config);

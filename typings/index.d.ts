@@ -501,6 +501,12 @@ export interface Method<S = any, E = any, R = any, T = any, RC = any, RE = any, 
    */
   onUpload(progressHandler: ProgressHandler): () => void;
 }
+export interface MethodOptions<R, T, RC, RH> {
+  type: MethodType;
+  url: string;
+  config?: AlovaMethodCreateConfig<R, T, RC, RH>;
+  data?: RequestBody;
+}
 export interface MethodConstructor {
   new <S, E, R, T, RC, RE, RH>(
     type: MethodType,
@@ -517,6 +523,7 @@ export interface Alova<S, E, RC, RE, RH> {
   options: AlovaOptions<S, E, RC, RE, RH>;
   id: string;
   storage: AlovaGlobalStorage;
+  instance<R, T = unknown>(options: MethodOptions<R, T, RC, RH>): Method<S, E, R, T, RC, RE, RH>;
   Get<R, T = unknown>(url: string, config?: AlovaMethodCreateConfig<R, T, RC, RH>): Method<S, E, R, T, RC, RE, RH>;
   Post<R, T = unknown>(
     url: string,
