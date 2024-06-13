@@ -1,6 +1,6 @@
 {
   "name": "@longmeta/alova",
-  "version": "2.20.5",
+  "version": "2.21.1",
   "description": "Request strategy library for MVVM libraries such as Vue.js, React.js and Svelte.js",
   "main": "dist/index.esm.js",
   "module": "dist/index.esm.js",
